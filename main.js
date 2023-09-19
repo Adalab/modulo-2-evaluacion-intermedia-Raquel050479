@@ -10,7 +10,6 @@ const optionCompu = document.querySelector('.js-optionCompu');
 let count = 0;
 let countUser = 0;
 let countCompu = 0;
-//const btnReset = document.querySelector('.js-btnReset');
 
 //función num aleatorio
 function getRandomNumber(max) {
@@ -51,21 +50,33 @@ function finalResult(optionUser, optionCompu) {
     (optionUser === 'tijera' && optionCompu === 'papel')
   ) {
     result.innerHTML = '¡Enhorabuena, has ganado!';
+    countUser++;
   } else {
     result.innerHTML = 'Has perdido';
+    countCompu++;
+  }
+  count++;
+}
+
+//función que cuenta los movimientos
+function countMovements() {
+  if (count >= 10) {
+    result.innerHTML = 'La partida ha terminado';
   }
 }
 
 //función manejadora que llama a todas las funciones necesarias
 function handleClick(event) {
   event.preventDefault();
-
   const optionUser = getSelectElement();
   const optionCompu = getComputerRandomNum();
   console.log(`Has elegido ${optionUser}`);
   console.log(`La compu ha elegido ${optionCompu}`);
   finalResult(optionUser, optionCompu);
   console.log(result);
+  optionUser.innerHTML = `Jugadora: ${countUser}`;
+  optionCompu.innerHTML = `Computadora: ${countCompu}`;
+  countMovements(countUser, countCompu);
 }
 
 //evento click
