@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ejercicio repaso intermedio</title>
+    <link rel="stylesheet" href="main.css" />
   </head>
   <body>
     <main>
@@ -11,13 +12,19 @@
       <h2 class="second__title">Introduce aquí tu jugada:</h2>
       <form class="form" action="#">
         <select class="js-select" name="select" id="select">
-          <option value="">Seleccione su jugada</option>
+          <option value="placeholder" selected disabled>
+            Seleccione su jugada
+          </option>
           <option value="piedra">Piedra</option>
           <option value="papel">Papel</option>
           <option value="tijera">Tijera</option>
         </select>
-        <button class="js-btn">Jugar</button>
+        <input type="submit" value="Jugar" class="js-btn" />
+        <!--input hidden button reset-->
       </form>
+      <p class="js-result">¡Vamos a jugar!</p>
+      <p class="js-optionUser">Jugador:</p>
+      <p class="js-optionCompu">Computadora:</p>
     </main>
     <script type="text/javascript" src="main.js"></script>
   </body>
